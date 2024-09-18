@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Index 1</title>
+    </head>
+    <body>
+        <h3>Single File Upload</h3>
+        <form method="post" enctype="multipart/form-data" action="/upload/singleupload">
+            File <input type="file" name="file"/>
+            <input type="submit" value="Upload"/>
+        </form>
+        <br>
+        <h3>Multi-file Upload</h3>
+        <form method="post" enctype="multipart/form-data" action="/upload/multiupload">
+            File <input type="file" name="files" multiple="multiple"/>
+            <input type="submit" value="Upload"/>
+        </form>
+    </body>
+</html>

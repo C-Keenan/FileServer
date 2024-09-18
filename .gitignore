@@ -1,0 +1,47 @@
+# Go files and executables
+*.a
+*.o
+# Generated files
+/bin/
+/obj/
+/bld/
+# C/C++ files
+*.c
+*.cc
+*.cpp
+*.cxx
+*.h
+*.hh
+*.hxx
+.hpp
+.dll
+.def
+*.pyc
+*.so
+*.a
+*.o
+*.lib
+*.exp
+*.exe
+*.dll
+*.com
+*.pdb
+*.swp
+*.svn
+*.git
+*.bzr
+*.hg
+*.dep
+*.ilk
+*.ncb
+*.suo
+*.user
+*.userobj
+*.opj
+*.aps
+*.apsd
+*.log
+*.world
+*.csproj
+.DS_Store
+Thumbs.db
