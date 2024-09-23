@@ -1,4 +1,4 @@
-package testcontroller
+package prodcontroller
 
 import (
 	"fmt"
@@ -25,8 +25,7 @@ func SingleUpload(w http.ResponseWriter, r *http.Request) {
 	dst, _ := os.Create("./uploads/" + handler.Filename)
 	defer dst.Close()
 	io.Copy(dst, file)
-	tmplt, _ := template.ParseFiles("views/fileview/index.html")
-	tmplt.Execute(w, nil)
+	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
 
 func MultiUpload(w http.ResponseWriter, r *http.Request) {
@@ -44,8 +43,7 @@ func MultiUpload(w http.ResponseWriter, r *http.Request) {
 		defer dst.Close()
 		io.Copy(dst, file)
 	}
-	tmplt, _ := template.ParseFiles("views/fileview/index.html")
-	tmplt.Execute(w, nil)
+	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
 
 func ViewFiles(w http.ResponseWriter, r *http.Request) {
