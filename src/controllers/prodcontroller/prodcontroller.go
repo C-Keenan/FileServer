@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 )
 
-func Index1(w http.ResponseWriter, r *http.Request) {
+func Upload(w http.ResponseWriter, r *http.Request) {
 	tmplt, _ := template.ParseFiles("views/testcontroller/index1.html")
 	tmplt.Execute(w, nil)
 }
@@ -25,7 +25,7 @@ func SingleUpload(w http.ResponseWriter, r *http.Request) {
 	dst, _ := os.Create("./uploads/" + handler.Filename)
 	defer dst.Close()
 	io.Copy(dst, file)
-	tmplt, _ := template.ParseFiles("views/fileview/index.html")
+	tmplt, _ := template.ParseFiles("views/prodcontroller/index.html")
 	tmplt.Execute(w, nil)
 }
 
@@ -61,5 +61,5 @@ func ViewFiles(w http.ResponseWriter, r *http.Request) {
 		}
 		return nil
 	})
-	tmplt.Execute(w, nil)
+	tmplt.Execute(w, data)
 }

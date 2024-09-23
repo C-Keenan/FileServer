@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>View File</title>
+    </head>
+    <body>
+        <h1>{{range $index, $file := .}}File {{ $index }}: {{ $file.Name }}{{end}}</h1>
+        <pre>{{range $index, $file := .}}{{if eq $index 0}}{{else}}<br/>{{end}}{{ $file.Content }}{{end}}</pre>
+    </body>
+</html>

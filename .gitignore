@@ -5,6 +5,8 @@
 /bin/
 /obj/
 /bld/
+# files that were uploaded during testing
+/src/uploads/*
 # C/C++ files
 *.c
 *.cc

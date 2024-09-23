@@ -9,8 +9,8 @@ import (
 	"path/filepath"
 )
 
-func Index1(w http.ResponseWriter, r *http.Request) {
-	tmplt, _ := template.ParseFiles("views/testcontroller/index1.html")
+func Upload(w http.ResponseWriter, r *http.Request) {
+	tmplt, _ := template.ParseFiles("views/fileview/index.html")
 	tmplt.Execute(w, nil)
 }
 
@@ -50,7 +50,7 @@ func MultiUpload(w http.ResponseWriter, r *http.Request) {
 
 func ViewFiles(w http.ResponseWriter, r *http.Request) {
 	dir := "./uploads"
-	tmplt, _ := template.ParseGlob("views/fileview/index.html")
+	tmplt, _ := template.ParseGlob("views/fileview/view.html")
 	data := map[string]interface{}{
 		"Dir":   dir,
 		"Files": []os.FileInfo{},
@@ -61,5 +61,5 @@ func ViewFiles(w http.ResponseWriter, r *http.Request) {
 		}
 		return nil
 	})
-	tmplt.Execute(w, nil)
+	tmplt.Execute(w, data)
 }

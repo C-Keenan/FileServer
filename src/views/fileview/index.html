@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>View Files</title>
-</head>
-<body>
-    <h1>Files in {{ .Dir }}:</h1>
-    <ul>
-        {{ range $index, $file := index $.Files }}
-            <li><a href="/view/{{ $file.Name }}">{{ $file.Name }}</a></li>
-        {{ end }}
-    </ul>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Index 1</title>
+    </head>
+    <body>
+        <h3>Single File Upload</h3>
+        <form method="post" enctype="multipart/form-data" action="/upload/singleupload">
+            File <input type="file" name="file"/>
+            <input type="submit" value="Upload"/>
+        </form>
+        <br>
+        <h3>Multi-file Upload</h3>
+        <form method="post" enctype="multipart/form-data" action="/upload/multiupload">
+            File <input type="file" name="files" multiple="multiple"/>
+            <input type="submit" value="Upload"/>
+        </form>
+    </body>
 </html>
