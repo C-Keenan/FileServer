@@ -1,0 +1,11 @@
+services:
+  fileserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: fileserver
+    container_name: fileserver
+    ports:
+      - "3000:3000"
+    volumes:
+      - /mnt/g/fileserver/uploads:/app/fileserver/uploads

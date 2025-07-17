@@ -3,8 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <title>View File</title>
+        <link rel="stylesheet" href="/static/style.css">
     </head>
     <body>
+        <button id="theme-toggle" aria-label="Toggle dark mode">🌙 Toggle Dark Mode</button>
         <h1>{{range $index, $file := .}}File {{ $index }}: {{ $file.Name }}{{end}}</h1>
         <pre>{{range $index, $file := .}}{{if eq $index 0}}{{else}}<br/>{{end}}{{ $file.Content }}{{end}}</pre>
     </body>

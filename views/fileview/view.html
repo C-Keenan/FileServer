@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>View Files</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>Files in {{ .Dir }}:</h1>
+    <button id="theme-toggle" aria-label="Toggle dark mode">🌙 Toggle Dark Mode</button>
+    <button onclick="window.location.href='/upload'">Want to upload a file? Click Me!</button>
+    <h1>Files on Server:</h1>
     <ul>
         {{ range $index, $file := index $.Files }}
             <li><a href="/view/{{ $file.Name }}">{{ $file.Name }}</a></li>
         {{ end }}
     </ul>
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+        document.getElementById('theme-toggle').onclick = function() {
+            const current = document.documentElement.getAttribute('data-theme');
+            document.documentElement.setAttribute('data-theme', current === 'dark' ? '' : 'dark');
+        };
+    </script>
 </body>
 </html>
