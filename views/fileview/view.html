@@ -9,11 +9,9 @@
     <button id="theme-toggle" aria-label="Toggle dark mode">🌙 Toggle Dark Mode</button>
     <button onclick="window.location.href='/upload'">Want to upload a file? Click Me!</button>
     <h1>Files on Server:</h1>
-    <ul>
-        {{ range $index, $file := index $.Files }}
-            <li><a href="/view/{{ $file.Name }}">{{ $file.Name }}</a></li>
-        {{ end }}
-    </ul>
+    {{ range $index, $file := index $.Files }}
+        <li><a href="/view/{{ $file.Name }}">{{ $file.Name }}</a></li>
+    {{ end }}
     <script>
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.setAttribute('data-theme', 'dark');
